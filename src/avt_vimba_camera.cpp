@@ -1122,6 +1122,14 @@ void AvtVimbaCamera::updateImageModeConfig(Config& config)
   {
     configureFeature("BinningVertical", static_cast<VmbInt64_t>(config.binning_y), config.binning_y);
   }
+  if (config.reverse_x != config_.reverse_x || on_init_)
+  {
+      configureFeature("ReverseX", static_cast<bool>(config.reverse_x), config.reverse_x);
+  }
+  if (config.reverse_y != config_.reverse_y || on_init_)
+  {
+      configureFeature("ReverseY", static_cast<bool>(config.reverse_y), config.reverse_y);
+  }
 }
 
 /** Change the ROI configuration */
